@@ -174,13 +174,85 @@
     var landmark: Landmark
     
     var body: some View {
-      Text("Hello, World!")
+      HStack {
+      landmark.image
+        .resizable()
+        .frame(width: 50, height: 50)
+        Text(landmark.name)
+        
+        Spacer()
+      }
     }
   }
   
   struct LandmarkRow_Previews: PreviewProvider {
     static var previews: some View {
-      LandmarkRow()
+      LandmarkRow(landmark: landmarks[0])
     }
   }
+  ```
+
+</br>
+
+### Customize the Row Preview
+- Wrap the returned row in a Group, and add the first row back again
+  ```swift
+  import SwiftUI
+  
+  struct LandmarkRow: View {
+    var landmark: Landmark
+    
+    var body: some View {
+      HStack {
+      landmark.image
+        .resizable()
+        .frame(width: 50, height: 50)
+        Text(landmark.name)
+        
+        Spacer()
+      }
+    }
+  }
+  
+  struct LandmarkRow_Previews: PreviewProvider {
+    static var previews: some View {
+    Group {
+        LandmarkRow(landmark: landmarks[0])
+        LandmarkRow(landmark: landmarks[1]) 
+      }.previewLayout(.fixed(width: 300, height: 70))
+    }
+  }
+  ```
+
+</br>
+
+### Create the List of Landmarks
+- Create static views
+  ```swift
+  struct LandmarkList: View {
+    var body: some View {
+      List {
+        LandmarkRow(landmark: landmark[0])
+        LandmarkRow(landmark: landmark[1])
+      }
+    }
+  }
+  ```
+
+### Make the List Dynamic
+- We can generate rows directly from a collection
+  ```swift
+  struct LandmarkList: View {
+    var body: some View {
+      List(landmarks){
+        Landmark in LandmarkRow(landmark: landmark)
+      }
+    }
+  }
+  ```
+  
+  
+  ```
+  // Landmark.swift
+  struct Landmark: Hashable, Codable, Identifiable {
   ```
