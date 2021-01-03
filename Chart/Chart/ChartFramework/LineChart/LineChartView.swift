@@ -58,7 +58,7 @@ public struct LineChartView: View {
         ZStack(alignment: .center){
             RoundedRectangle(cornerRadius: 20)
                 .fill(self.colorScheme == .dark ? self.darkModeStyle.backgroundColor : self.style.backgroundColor)
-                .frame(width: frame.width, height: 240, alignment: .center)
+                .frame(width: frame.width, height: 150, alignment: .center)
                 .shadow(color: self.style.dropShadowColor, radius: self.dropShadow ? 8 : 0)
             VStack(alignment: .leading){
                 if(!self.showIndicatorDot){
@@ -72,18 +72,18 @@ public struct LineChartView: View {
                                 .font(.callout)
                                 .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.legendTextColor :self.style.legendTextColor)
                         }
-                        HStack {
-                            
-                            if (self.rateValue ?? 0 != 0)
-                            {
-                                if (self.rateValue ?? 0 >= 0){
-                                    Image(systemName: "arrow.up")
-                                }else{
-                                    Image(systemName: "arrow.down")
-                                }
-                                Text("\(self.rateValue!)%")
-                            }
-                        }
+//                        HStack {
+//                            
+//                            if (self.rateValue ?? 0 != 0)
+//                            {
+//                                if (self.rateValue ?? 0 >= 0){
+//                                    Image(systemName: "arrow.up")
+//                                }else{
+//                                    Image(systemName: "arrow.down")
+//                                }
+//                                Text("\(self.rateValue!)%")
+//                            }
+//                        }
                     }
                     .transition(.opacity)
                     .animation(.easeIn(duration: 0.1))

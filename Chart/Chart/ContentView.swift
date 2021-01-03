@@ -21,9 +21,44 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct LineCharts:View {
+    @State var showTotal = false
     var body: some View {
         VStack{
-            LineChartView(data: [8,23,54,32,12,37,7,23,43], title: "Title")
+            HStack{
+                Toggle(" ", isOn: $showTotal).toggleStyle(SwitchToggleStyle(tint: Color.blue))
+                
+                Button(action: {print("Move to Detail")}, label: {
+                    Image(systemName: "plus").font(.title)
+                })
+                	
+            }.padding()
+            
+            
+            if showTotal {
+                VStack{
+                    LineChartView(data: [53.8,54.7,52.1,55.5,54.3,53.2,52.1,53.8,54.7,52.1,55.5,54.3,53.2,52.1], title: "몸무게 (kg)", form: ChartForm.custom)
+                }.padding(.bottom, 25)
+                
+                VStack{
+                    LineChartView(data: [8,23,24,12,22,17,27,23,23,8,23,24,12,22,17,27,23,23], title: "기초대사량", form: ChartForm.custom)
+                }.padding(.bottom, 25)
+                
+                VStack{
+                    LineChartView(data: [16.2,12.5,13.5,17.2,12.5,11.3,12.2,16.2,12.5,13.5,17.2,12.5,11.3,12.2], title: "BMI", form: ChartForm.custom)
+                }.padding(.bottom, 25)
+            } else {
+                VStack{
+                    LineChartView(data: [53.8,54.7,52.1,55.5,54.3,53.2,52.1], title: "몸무게 (kg)", form: ChartForm.custom)
+                }.padding(.bottom, 25)
+                
+                VStack{
+                    LineChartView(data: [8,23,24,12,22,17,27,23,23], title: "기초대사량", form: ChartForm.custom)
+                }.padding(.bottom, 25)
+                
+                VStack{
+                    LineChartView(data: [16.2,12.5,13.5,17.2,12.5,11.3,12.2], title: "BMI", form: ChartForm.custom)
+                }.padding(.bottom, 25)
+            }
         }
     }
 }
