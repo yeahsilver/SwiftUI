@@ -55,9 +55,9 @@ struct LineCharts:View {
                     LineChartView(data: [8,23,24,12,22,17,27,23,23], title: "기초대사량", form: ChartForm.custom)
                 }.padding(.bottom, 25)
                 
-                VStack{
-                    LineChartView(data: [16.2,12.5,13.5,17.2,12.5,11.3,12.2], title: "BMI", form: ChartForm.custom)
-                }.padding(.bottom, 25)
+                VStack {
+                    LineView(data: [8,23,54,32,12,37,7,23,43], title: "Line chart", legend: "Full screen")
+                }
             }
         }
     }
