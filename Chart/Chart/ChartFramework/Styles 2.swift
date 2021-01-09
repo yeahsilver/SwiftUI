@@ -59,8 +59,8 @@ public struct GradientColors {
 public struct Styles {
     public static let lineChartStyleOne = ChartStyle(
         backgroundColor: Color.white,
-        accentColor: Colors.OrangeStart,
-        secondGradientColor: Colors.OrangeEnd,
+        accentColor: Colors.GradientPurple,
+        secondGradientColor: Colors.GradientPurple,
         textColor: Color.black,
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
@@ -143,7 +143,7 @@ public struct ChartForm {
     public static let large = CGSize(width:360, height:240)
     public static let extraLarge = CGSize(width:360, height:240)
     public static let detail = CGSize(width:180, height:120)
-    public static let custom = CGSize(width:360, height: 135)
+    public static let custom = CGSize(width:360, height:80)
     #endif
 }
 
